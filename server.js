@@ -11,7 +11,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/SavedBooks";
-const GOOGLY_API = process.env.GOOGLY_API;
+const GOOGLE_API = process.env.GOOGLE_API;
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -50,7 +50,7 @@ app.delete('/api/books/:id', (req, res) => {
 })
 
 app.use('*', (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+    res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 app.listen(PORT, () => {
